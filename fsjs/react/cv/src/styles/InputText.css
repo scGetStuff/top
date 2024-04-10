@@ -1,0 +1,17 @@
+.field {
+    display: flex;
+    gap: 1rem;
+}
+
+label {
+    text-wrap: wrap;
+    width: 25%;
+}
+
+input {
+    /* this is to override the gray text caused by disabled
+    I did not want to hard code style in the component */
+    color: black;
+
+    flex-grow: 1;
+}

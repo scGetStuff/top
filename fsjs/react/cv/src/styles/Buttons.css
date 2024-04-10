@@ -1,0 +1,8 @@
+.buttons {
+    background-color: var(--clr-secondary);
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}

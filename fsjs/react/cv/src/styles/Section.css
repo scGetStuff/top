@@ -1,0 +1,19 @@
+.section {
+    outline: 1px solid black;
+    background-color: var(--clr-secondary);
+    padding: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    text-align: left;
+}
+
+.fields {
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
