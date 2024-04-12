@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import '../styles/App.css';
-import { setWriteFlag } from '../global';
+import { WriteContext } from '../context/WriteContext';
 import * as DATA from '../data';
 import Section from './Section';
 import InputText from './InputText';
@@ -10,19 +10,17 @@ import Buttons from './Buttons';
 
 function App() {
     // eslint-disable-next-line no-unused-vars
-    const [write, setWrite] = useState(false);
+    const [write, setWrite] = useState(useContext(WriteContext));
     const [fields, setFields] = useState(DATA.loadData());
 
     // console.log('APP');
 
     function edit() {
-        setWriteFlag(true);
         setWrite(true);
     }
 
     function save() {
         DATA.saveData(fields);
-        setWriteFlag(false);
         setWrite(false);
     }
 
@@ -52,27 +50,28 @@ function App() {
         <>
             <h1>CV</h1>
 
-            <Section label="General Information">
-                <InputText
-                    name="general.name"
-                    value={fields.general.name}
-                    label="Name"
-                    onChange={handleChange}
-                />
-                <InputText
-                    name="general.email"
-                    value={fields.general.email}
-                    label="E-mail"
-                    onChange={handleChange}
-                />
-                <InputText
-                    name="general.phone"
-                    value={fields.general.phone}
-                    label="Phone number"
-                    onChange={handleChange}
-                />
-            </Section>
-            {/* <Section label='Educational Experience'>
+            <WriteContext.Provider value={write}>
+                <Section label="General Information">
+                    <InputText
+                        name="general.name"
+                        value={fields.general.name}
+                        label="Name"
+                        onChange={handleChange}
+                    />
+                    <InputText
+                        name="general.email"
+                        value={fields.general.email}
+                        label="E-mail"
+                        onChange={handleChange}
+                    />
+                    <InputText
+                        name="general.phone"
+                        value={fields.general.phone}
+                        label="Phone number"
+                        onChange={handleChange}
+                    />
+                </Section>
+                {/* <Section label='Educational Experience'>
                 <InputText name='one' value='stuff' label='' />
                 <InputText name='two' value='stuff' label='' />
                 <InputText name='three' value='stuff' label='' />
@@ -82,6 +81,7 @@ function App() {
                 <InputText name='two' value='stuff' label='' />
                 <InputText name='three' value='stuff' label='' />
             </Section> */}
+            </WriteContext.Provider>
 
             <Buttons onClickHandlers={{ edit, save, defaultData, clearData }} />
         </>

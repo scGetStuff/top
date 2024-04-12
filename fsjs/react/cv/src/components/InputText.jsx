@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/InputText.css';
-import { getWriteFlag } from '../global';
+import { WriteContext } from '../context/WriteContext';
 
 function InputText(props) {
-    const write = getWriteFlag();
+    const write = useContext(WriteContext);
 
     let item;
     if (write) {
