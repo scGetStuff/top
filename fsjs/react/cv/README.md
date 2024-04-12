@@ -22,5 +22,6 @@ npm run dev
 
 # TODO
 
--   form - there is no server side. just useless button that eats the submit?
--   save stuff to local storage?
+-   form - there is no server side. just a button that eats the submit?
+-   make the experience section a list to support multiple jobs; this will break my simple input binding approach
+-   I hate that the App is re-rendered for each key press, it feels wrong

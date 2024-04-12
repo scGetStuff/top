@@ -2,7 +2,8 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import '../styles/App.css';
-import { DEFAULT, clone, setWriteFlag } from '../global';
+import { setWriteFlag } from '../global';
+import * as DATA from '../data';
 import Section from './Section';
 import InputText from './InputText';
 import Buttons from './Buttons';
@@ -10,8 +11,9 @@ import Buttons from './Buttons';
 function App() {
     // eslint-disable-next-line no-unused-vars
     const [write, setWrite] = useState(false);
-    // eslint-disable-next-line no-unused-vars
-    const [fields, setFields] = useState(DEFAULT);
+    const [fields, setFields] = useState(DATA.loadData());
+
+    // console.log('APP');
 
     function edit() {
         setWriteFlag(true);
@@ -19,40 +21,29 @@ function App() {
     }
 
     function save() {
+        DATA.saveData(fields);
         setWriteFlag(false);
         setWrite(false);
     }
 
-    function fillDefault() {
-        setFields(DEFAULT);
+    function defaultData() {
+        setFields(DATA.DEFAULT);
     }
 
     function clearData() {
-        const copy = clone(fields);
-        clear(copy);
-        setFields(copy);
-
-        function clear(obj) {
-            for (let key in obj) {
-                if (typeof obj[key] === 'object') {
-                    clear(obj[key]);
-                } else {
-                    obj[key] = '';
-                }
-            }
-        }
+        DATA.saveData();
+        setFields(DATA.EMPTY);
     }
 
-    // TODO: kind of hate the lack of a Form framework
-    // using name & value convention, they need to match
-    // so I can use a generic handler function
-    // TODO: does it trigger a re-render for each key press?
+    // TODO: feels like there must be a better approach
+    // name & value need to match so I can find the correct field to update
+    // the nested objects complicate stuff
     function handleChange(target) {
         // console.log(`${target.name}  ${target.value}`);
         const path = target.name.split('.');
         if (path.length != 2) throw new Error('Something is fucked up!');
 
-        const copy = clone(fields);
+        const copy = DATA.clone(fields);
         copy[path[0]][path[1]] = target.value;
         setFields(copy);
     }
@@ -92,7 +83,7 @@ function App() {
                 <InputText name='three' value='stuff' label='' />
             </Section> */}
 
-            <Buttons onClickHandlers={{ edit, save, fillDefault, clearData }} />
+            <Buttons onClickHandlers={{ edit, save, defaultData, clearData }} />
         </>
     );
 }

@@ -14,7 +14,7 @@ function Buttons(props) {
             <button name="save" onClick={events.save}>
                 Save
             </button>
-            <button name="default" onClick={events.fillDefault}>
+            <button name="default" onClick={events.defaultData}>
                 Default data
             </button>
             <button name="clear" onClick={events.clearData}>
