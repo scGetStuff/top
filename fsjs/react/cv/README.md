@@ -10,9 +10,13 @@ npm run dev
 # clean out template CSS and jsx
 ```
 
-# Requirements
+# Notes
 
-## application should include:
+-   I'm done
+-   at this point in the corse they have not covered React enough to not write stupid code, specifically hooks
+-   I don't care about deployment at this time, maybe circle back after finishing the material
+
+# application should include:
 
 -   section to add general information like name, email and phone number
 -   section to add your educational experience (school name, title of study and date of study)
@@ -22,6 +26,8 @@ npm run dev
 
 # TODO
 
--   form - there is no server side. just a button that eats the submit?
+-   make description a text area
+-   make year numeric
+-   form? - there is no server side. just a button that eats the submit?
 -   make the experience section a list to support multiple jobs; this will break my simple input binding approach
--   I hate that the App is re-rendered for each key press, it feels wrong
+-   I hate that the App is re-rendered for each key press. should switch to useRef() or something, not really in scope for this project, probably just move on.

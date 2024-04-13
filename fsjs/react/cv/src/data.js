@@ -1,4 +1,6 @@
 // TODO: I really need to switch to TS
+// I don't trust that react will not break stuff if this is passed directly
+// so I hide it behind clone()
 const DEFAULT = {
     general: {
         name: 'Scott Clark',
@@ -15,44 +17,45 @@ const DEFAULT = {
     },
 };
 
-const EMPTY = clear(clone(DEFAULT));
-
 const STORE_KEY = 'scotttopfsjscv';
 
-function loadData() {
+function load() {
     const local = localStorage.getItem(STORE_KEY);
 
-    if (!local) return DEFAULT;
+    if (!local) return clone();
 
     return JSON.parse(local);
 }
 
-function saveData(data = undefined) {
-    if (!data) localStorage.removeItem(STORE_KEY);
-    else localStorage.setItem(STORE_KEY, JSON.stringify(data));
+function saveLocal(data) {
+    localStorage.setItem(STORE_KEY, JSON.stringify(data));
 }
 
-function clear(obj) {
-    for (let key in obj) {
+function removeLocal() {
+    localStorage.removeItem(STORE_KEY);
+}
+
+function clear(data) {
+    for (let key in data) {
         // console.log(key);
-        if (typeof obj[key] === 'object') {
-            clear(obj[key]);
+        if (typeof data[key] === 'object') {
+            clear(data[key]);
         } else {
-            obj[key] = '';
+            data[key] = '';
         }
     }
-    return obj;
+    return data;
 }
 
 // TODO: spread does not do deep copy
 // my hack for this simple structure
-function clone(obj = DEFAULT) {
+function clone(data = DEFAULT) {
     return {
-        ...obj,
-        general: { ...obj.general },
-        education: { ...obj.education },
-        experience: { ...obj.experience },
+        ...data,
+        general: { ...data.general },
+        education: { ...data.education },
+        experience: { ...data.experience },
     };
 }
 
-export { DEFAULT, EMPTY, loadData, saveData, clone };
+export { clone, clear, load, saveLocal, removeLocal };
