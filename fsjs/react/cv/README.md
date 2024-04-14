@@ -12,8 +12,7 @@ npm run dev
 
 # Notes
 
--   I'm done
--   at this point in the corse they have not covered React enough to not write stupid code, specifically hooks
+-   I'm done, want to move to the rest of the material
 -   I don't care about deployment at this time, maybe circle back after finishing the material
 
 # application should include:
@@ -30,4 +29,4 @@ npm run dev
 -   make year numeric
 -   form? - there is no server side. just a button that eats the submit?
 -   make the experience section a list to support multiple jobs; this will break my simple input binding approach
--   I hate that the App is re-rendered for each key press. should switch to useRef() or something, not really in scope for this project, probably just move on.
+-   CSS is not right, I mistakenly thought imports would be scoped to the component, old memories from CSS Module work; should just switch to styled components library, because it scopes the way I want

@@ -11,7 +11,6 @@ import Buttons from './Buttons';
 function App() {
     // eslint-disable-next-line no-unused-vars
     const [write, setWrite] = useState(useContext(WriteContext));
-    // TODO: there is no reason for useState(), nothing needs to change as data is entered
     const [fields, setFields] = useState(DATA.load());
 
     // console.log('APP');
@@ -34,7 +33,6 @@ function App() {
         setFields(DATA.clear(DATA.clone()));
     }
 
-    // TODO: feels like there must be a better approach
     function handleChange(target) {
         // console.log(`${target.name}  ${target.value}`);
         const path = target.name.split('.');

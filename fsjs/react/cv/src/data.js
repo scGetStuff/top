@@ -1,6 +1,8 @@
 // TODO: I really need to switch to TS
-// I don't trust that react will not break stuff if this is passed directly
-// so I hide it behind clone()
+
+// TODO: need to isolate and test to figure this out
+// I'm not sure what will happen if this is passed directly to useState()
+// so I hide it behind clone(), I don't want to make any changes to the default data
 const DEFAULT = {
     general: {
         name: 'Scott Clark',
@@ -47,7 +49,7 @@ function clear(data) {
     return data;
 }
 
-// TODO: spread does not do deep copy
+// spread does not do deep copy
 // my hack for this simple structure
 function clone(data = DEFAULT) {
     return {
