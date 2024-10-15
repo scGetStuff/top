@@ -17,7 +17,7 @@ npm run dev
 # Notes
 
 -   I'm done, want to move to the rest of the material
--   I don't care about deployment at this time, maybe circle back after finishing the material
+-   I don't care about deployment at this time, maybe circle back later
 
 # application should include:
 
