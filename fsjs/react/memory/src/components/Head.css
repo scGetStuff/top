@@ -1,0 +1,21 @@
+.head-container {
+    background-color: var(--clr-secondary);
+    padding: 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head-left,
+.head-right,
+.head-score {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.head-score {
+    font-size: larger;
+    text-align: end;
+}

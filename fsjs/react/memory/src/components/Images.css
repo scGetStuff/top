@@ -1,0 +1,27 @@
+img:hover {
+    cursor: pointer;
+}
+
+.imgs-message {
+    text-align: center;
+    font-size: x-large;
+}
+
+.imgs-container {
+    padding: 0.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.imgs-buttons {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.hide {
+    display: none;
+}
