@@ -25,6 +25,10 @@ code for [**The Odin Project**](https://www.theodinproject.com/) course work
 -   I do want a single `node_modules` location, but have not looked into trying to override this behavior yet
     https://vitejs.dev/guide/dep-pre-bundling
 
+# prop-types
+
+-   it has to be a regular dependency; I do not like this
+
 # notes
 
 -   I did run `npx prettier --write .` on the root initially; I haven't set up any hooks to format, I generally just let prettier do its thing interactively
