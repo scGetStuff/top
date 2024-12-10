@@ -13,4 +13,6 @@ npm run dev
 
 # clean out template CSS and jsx
 
+npm i -P react-router-dom
+
 ```
