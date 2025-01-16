@@ -25,6 +25,27 @@ code for [**The Odin Project**](https://www.theodinproject.com/) course work
 -   I do want a single `node_modules` location, but have not looked into trying to override this behavior yet
     https://vitejs.dev/guide/dep-pre-bundling
 
+### merging into `package.json`
+
+-   this is starting to get a little annoying, vite is different every project, need to use a utility to merge version changes
+-   I may just run a script that installs latest version of everything
+
+```shell
+npm i -P prop-types
+
+npm i -P react
+npm i -P react-dom
+npm i -P react-router-dom
+
+
+npm i -D vitest
+npm i -D jsdom
+npm i -D @testing-library/react
+npm i -D @testing-library/jest-dom
+
+npm i -D @eslint/js
+```
+
 # prop-types
 
 -   it has to be a regular dependency; I do not like this

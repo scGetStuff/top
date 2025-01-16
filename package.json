@@ -6,7 +6,7 @@
         "react-router-dom": "^6.28.2"
     },
     "devDependencies": {
-        "@eslint/js": "^9.13.0",
+        "@eslint/js": "^9.18.0",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^16.2.0",
         "@testing-library/user-event": "^14.6.0",
@@ -20,7 +20,7 @@
         "globals": "^15.14.0",
         "jsdom": "^25.0.1",
         "prettier": "3.3.3",
-        "vite": "^5.4.11",
+        "vite": "^6.0.7",
         "vitest": "^2.1.8"
     }
 }
